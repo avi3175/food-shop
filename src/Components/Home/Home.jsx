@@ -21,7 +21,7 @@ const Home = () => {
     return (
 
         <div>
-          
+
             <div className='bg-orange-100'>
 
 
@@ -62,7 +62,7 @@ const Home = () => {
 
                 </div>
             </div>
-            
+
         </div>
     );
 };
