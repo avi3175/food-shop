@@ -32,6 +32,17 @@ const Header = () => {
                     >
                         <p>HOME</p>
                     </NavLink>
+                    <NavLink
+                        to="/blog"
+                        style={({ isActive, isPending }) => {
+                            return {
+                                fontWeight: isActive ? "bold" : "",
+                                color: isPending ? "red" : "black",
+                            };
+                        }}
+                    >
+                        <p>BLOG</p>
+                    </NavLink>
 
                     {
                         user ? <button onClick={handleLogOut}>LOG OUT</button>
