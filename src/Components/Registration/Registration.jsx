@@ -1,18 +1,65 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Registration = () => {
+  const [error, setError] = useState('')
+  const { createUser } = useContext(AuthContext)
+
+  const handleSignUp = (event) => {
+    event.preventDefault()
+    const form = event.target
+    const email = form.email.value
+    const password = form.password.value
+    const confirm = form.confirm.value
+    console.log(password, email, confirm)
+
+
+    setError('')
+
+    if (password !== confirm) {
+      setError('YOUR PASSWORD DID NOT MATCHED')
+      return
+    }
+    else if (password.length < 6) {
+      setError('PASSWORD LENGTH MUST BE WITHIN 6 CHARECTER OR LONGER')
+      return
+    }
+
+    createUser(email, password)
+      .then(result => {
+        const loggedUser = result.user
+        console.log(loggedUser)
+      })
+      .catch(error => {
+        console.log(error)
+        setError(error.message)
+      })
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div >
 
       <div className='flex justify-center items-center gap-5'>
         <div >
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCA-4k6UxQ365CQa1Xo6vZsHWL0xCbiRegQg&usqp=CAU" alt="" className='w-16' />
-         
+
         </div>
         <div >
           <img src="https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png" alt="" className='w-16' />
-        
+
         </div>
       </div>
 
@@ -21,57 +68,87 @@ const Registration = () => {
 
 
 
-      <div className='mx-60'>
+      <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign up for an account</h2>
+          <p className="mt-2 text-center text-sm text-gray-600">
+            Or
+            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+              sign in to your existing account
+            </a>
+          </p>
+        </div>
 
-        <div className='mx-60 mt-12'>
-          <div class="w-full max-w-xs">
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
 
 
 
-            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <form className="space-y-6" onSubmit={handleSignUp}>
 
-              <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                  Username
+
+             
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  Email address
                 </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" name='name' />
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                  Email
-                </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="email" placeholder="Email" name='email'/>
+                <div className="mt-1">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                </div>
               </div>
 
-
-              <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                   Password
                 </label>
-                <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" name='password' />
-                <p class="text-red-500 text-xs italic">Please choose a password.</p>
+                <div className="mt-1">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  Password
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="confirm"
+                    name="confirm"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                </div>
               </div>
 
-
-              <div class="flex items-center justify-between">
-                <input type="submit" value="REGISTER" className='px-4 py-2 bg-blue-700 text-center font-bold  text-white' />
-                <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-                  Forgot Password?
-                </a>
+              <div>
+                <input type="submit" value="SIGN UP" />
               </div>
-
-
             </form>
 
 
 
-            <p className='text-xl font-bold'>ALREADY SIGN IN?</p>
-            <Link to="/login"><span className='text-blue-500 font-bold'>REGISTER</span></Link>
           </div>
         </div>
       </div>
 
-     
+
+      <p>{error}</p>
     </div>
   );
 };

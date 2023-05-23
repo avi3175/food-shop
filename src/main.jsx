@@ -14,43 +14,46 @@ import Registration from './Components/Registration/Registration.jsx';
 import Chefs from './Components/Chefs/Chefs.jsx';
 import Main from './Components/Layout/Main.jsx';
 import LandingPage from './Components/LandingPage/LandingPage.jsx';
+import AuthProvider from './Components/Provider/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    children:[
+    children: [
       {
-        path:"/",
-        element:<LandingPage></LandingPage>
+        path: "/",
+        element: <LandingPage></LandingPage>
       },
       {
-        path:"/home",
-        element:<Home></Home>,
-        loader:()=>fetch('http://localhost:5000/tong')
+        path: "/home",
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/tong')
       },
       {
-        path:"/login",
-        element:<Login></Login>
+        path: "/login",
+        element: <Login></Login>
       },
       {
-        path:"/registration",
-        element:<Registration></Registration>
+        path: "/registration",
+        element: <Registration></Registration>
       },
-     
+
     ]
   },
- 
+
   {
-    path:"/chefs",
-    element:<Chefs></Chefs>
-    
+    path: "/chefs",
+    element: <Chefs></Chefs>
+
   },
-  
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
