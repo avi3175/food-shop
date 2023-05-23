@@ -9,11 +9,12 @@ const Header = () => {
                     <Link to="/">
                         <h1 className='font-bold text-yellow-500 text-3xl'>TONG GHOR</h1>
                     </Link>
+                   
                 </div>
 
-                <div className='flex gap-5'>
+                <div className='flex gap-5 justify-between items-center'>
 
-
+                <img src="https://static.vecteezy.com/system/resources/previews/011/482/129/original/simple-and-hot-tea-logo-design-template-tea-cup-logo-design-free-vector.jpg" alt="" className='w-16' />
 
                     <NavLink
                         to="/home"
