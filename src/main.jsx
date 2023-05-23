@@ -15,6 +15,7 @@ import Chefs from './Components/Chefs/Chefs.jsx';
 import Main from './Components/Layout/Main.jsx';
 import LandingPage from './Components/LandingPage/LandingPage.jsx';
 import AuthProvider from './Components/Provider/AuthProvider.jsx';
+import PrivateRoute from './Components/Routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,15 +39,20 @@ const router = createBrowserRouter([
         path: "/registration",
         element: <Registration></Registration>
       },
+      {
+        path: "/chefs",
+        element: <PrivateRoute><Chefs></Chefs></PrivateRoute>
+    
+      },
 
     ]
   },
 
-  {
-    path: "/chefs",
-    element: <Chefs></Chefs>
+  // {
+  //   path: "/chefs",
+  //   element: <Chefs></Chefs>
 
-  },
+  // },
 
 ]);
 
