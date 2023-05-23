@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+    }
     return (
         <div>
             <div className='flex justify-between '>
@@ -9,12 +14,12 @@ const Header = () => {
                     <Link to="/">
                         <h1 className='font-bold text-yellow-500 text-3xl'>TONG GHOR</h1>
                     </Link>
-                   
+
                 </div>
 
                 <div className='flex gap-5 justify-between items-center'>
 
-                <img src="https://static.vecteezy.com/system/resources/previews/011/482/129/original/simple-and-hot-tea-logo-design-template-tea-cup-logo-design-free-vector.jpg" alt="" className='w-16' />
+                    <img src="https://static.vecteezy.com/system/resources/previews/011/482/129/original/simple-and-hot-tea-logo-design-template-tea-cup-logo-design-free-vector.jpg" alt="" className='w-16' />
 
                     <NavLink
                         to="/home"
@@ -28,18 +33,23 @@ const Header = () => {
                         <p>HOME</p>
                     </NavLink>
 
-                    <NavLink
-                        to="/login"
-                        style={({ isActive, isPending }) => {
-                            return {
-                                fontWeight: isActive ? "bold" : "",
-                                color: isPending ? "red" : "black",
-                            };
-                        }}
-                    >
-                        <p>LOG IN </p>
-                    </NavLink>
+                    {
+                        user ? <button onClick={handleLogOut}>LOG OUT</button>
+                            :
+                            <NavLink
+                                to="/login"
+                                style={({ isActive, isPending }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : "",
+                                        color: isPending ? "red" : "black",
+                                    };
+                                }}
+                            >
+                                <p>LOG IN </p>
+                            </NavLink>
 
+
+                    }
                     <NavLink
                         to="/registration"
                         style={({ isActive, isPending }) => {
