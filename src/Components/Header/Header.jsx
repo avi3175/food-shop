@@ -11,7 +11,7 @@ const Header = () => {
             </div>
 
             <div className='flex gap-5'>
-                <Outlet></Outlet>
+               
                 {/* <NavLink to="/"><p>HOME</p></NavLink> */}
 
                             <NavLink

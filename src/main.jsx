@@ -13,12 +13,22 @@ import Header from './Components/Header/Header.jsx';
 import Login from './Components/Login/Login.jsx';
 import Registration from './Components/Registration/Registration.jsx';
 import Chefs from './Components/Chefs/Chefs.jsx';
+import Main from './Components/Layout/Main.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Header></Header>,
+    element: <Main></Main>,
     children:[
+      {
+        path:"/",
+        element:<Header></Header>
+      },
+      {
+        path:"/home",
+        element:<Home></Home>,
+        loader:()=>fetch('http://localhost:5000/tong')
+      },
       {
         path:"/login",
         element:<Login></Login>
@@ -30,11 +40,7 @@ const router = createBrowserRouter([
      
     ]
   },
-  {
-    path:"/home",
-    element:<Home></Home>,
-    loader:()=>fetch('http://localhost:5000/tong')
-  },
+ 
   {
     path:"/chefs",
     element:<Chefs></Chefs>
