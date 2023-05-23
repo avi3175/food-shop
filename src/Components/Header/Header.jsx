@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import Slider from '../Slider/Slider';
 
 const Header = () => {
     return (
@@ -12,7 +11,7 @@ const Header = () => {
 
             <div className='flex gap-5'>
                
-                {/* <NavLink to="/"><p>HOME</p></NavLink> */}
+                
 
                             <NavLink
                                         to="/home"
@@ -51,12 +50,11 @@ const Header = () => {
                             </NavLink>
 
                         
-                {/* <Link to="/login"><p>LOG IN </p></Link> */}
-                {/* <Link to="/registration"><p> REGISTER</p></Link> */}
+               
             </div>
             
             </div>
-        <Slider></Slider>
+            
         </div>
     );
 };

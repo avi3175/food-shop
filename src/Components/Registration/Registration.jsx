@@ -2,7 +2,9 @@ import React from 'react';
 
 const Registration = () => {
     return (
-        <div className='mx-60 mt-32'>
+        <div>
+         
+          <div className='mx-60 mt-32'>
             <div class="w-full max-w-xs">
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
               <div class="mb-4">
@@ -31,6 +33,7 @@ const Registration = () => {
               &copy;2020 Acme Corp. All rights reserved for registration.
             </p>
           </div>
+        </div>
         </div>
     );
 };

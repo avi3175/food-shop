@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import Header from '../Header/Header';
+
+
+
 
 // import Header from '../Header/Header';
 
@@ -19,7 +21,7 @@ const Home = () => {
     return (
 
         <div>
-            <Header></Header>
+          
             <div className='bg-orange-100'>
 
 
@@ -60,6 +62,7 @@ const Home = () => {
 
                 </div>
             </div>
+            
         </div>
     );
 };

@@ -2,7 +2,8 @@ import React from 'react';
 
 const Login = () => {
     return (
-        <div className='mx-60 mt-32'>
+        <div> 
+          <div className='mx-60 mt-32'>
             <div class="w-full max-w-xs">
 
               <form class="bg-yellow-400 shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
@@ -34,6 +35,7 @@ const Login = () => {
                 &copy;2023 Acme Corp. All rights reserved.
               </p> */}
             </div>
+        </div>
         </div>
     );
 };

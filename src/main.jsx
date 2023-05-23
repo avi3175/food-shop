@@ -9,11 +9,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Components/Home/Home.jsx';
-import Header from './Components/Header/Header.jsx';
 import Login from './Components/Login/Login.jsx';
 import Registration from './Components/Registration/Registration.jsx';
 import Chefs from './Components/Chefs/Chefs.jsx';
 import Main from './Components/Layout/Main.jsx';
+import LandingPage from './Components/LandingPage/LandingPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<Header></Header>
+        element:<LandingPage></LandingPage>
       },
       {
         path:"/home",
