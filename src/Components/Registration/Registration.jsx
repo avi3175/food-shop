@@ -4,7 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const Registration = () => {
   const [error, setError] = useState('')
-  const { createUser } = useContext(AuthContext)
+  const { createUser,handleGoogle,handleTheGit } = useContext(AuthContext)
 
   const handleSignUp = (event) => {
     event.preventDefault()
@@ -38,9 +38,30 @@ const Registration = () => {
 
   }
 
+// const handleGoogle = () =>{
 
+// }
+const handleG = () =>{
+  handleGoogle()
+  .then(result=>{
+    const loggedUser = result.user
+    console.log(loggedUser)
+  })
+  .catch(error=>{
+    console.log(error)
+  })
+}
 
-
+const handleGit = () =>{
+  handleTheGit()
+  .then(result=>{
+    const loggedUser = result.user
+    console.log(loggedUser)
+  })
+  .catch(error=>{
+    console.log(error)
+  })
+}
 
 
 
@@ -53,11 +74,11 @@ const Registration = () => {
     <div >
 
       <div className='flex justify-center items-center gap-5'>
-        <div >
+        <div onClick={handleG} >
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCA-4k6UxQ365CQa1Xo6vZsHWL0xCbiRegQg&usqp=CAU" alt="" className='w-16' />
 
         </div>
-        <div >
+        <div onClick={handleGit} >
           <img src="https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png" alt="" className='w-16' />
 
         </div>
