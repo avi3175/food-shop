@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-        <div> 
+        <div className='mx-60'> 
           <div className='mx-60 mt-32'>
             <div class="w-full max-w-xs">
 
@@ -22,18 +23,16 @@ const Login = () => {
                   <p class="text-red-500 text-xs italic">Please choose a password.</p>
                 </div>
                 <div class="flex items-center justify-between">
-                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                    Sign In
-                  </button>
+                 <input type="submit" value="SIGN IN" className='px-4 py-2 bg-blue-700 text-center font-bold  text-white' />
                   <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
                     Forgot Password?
                   </a>
                 </div>
 
               </form>
-              {/* <p class="text-center text-gray-500 text-xs">
-                &copy;2023 Acme Corp. All rights reserved.
-              </p> */}
+              <p className='text-xl font-bold'>NEW TO THIS WEBSITE?</p>
+              <Link to="/registration"><span className='text-blue-500 font-bold'>REGISTER</span></Link>
+             
             </div>
         </div>
         </div>
