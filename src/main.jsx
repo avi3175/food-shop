@@ -18,6 +18,8 @@ import AuthProvider from './Components/Provider/AuthProvider.jsx';
 import PrivateRoute from './Components/Routes/PrivateRoute.jsx';
 import Blog from './Components/Blog/Blog.jsx';
 import Error from './Components/Error/Error.jsx';
+import Future from './Components/Future/Future.jsx';
+import Footer from './Components/Footer/Footer.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/tong')
+        loader: () => fetch('https://tong-server.vercel.app/tong')
       },
       {
         path: "/login",
@@ -49,6 +51,16 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>
+    
+      },
+      {
+        path: "/future",
+        element: <Future></Future>
+    
+      },
+      {
+        path: "/footer",
+        element: <Footer></Footer>
     
       },
       {

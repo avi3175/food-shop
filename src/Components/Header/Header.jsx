@@ -9,7 +9,7 @@ const Header = () => {
     }
     return (
         <div>
-            <div className='flex justify-between '>
+            <div className='flex justify-between sm:flex-col-reverse md:flex-row'>
                 <div>
                     <Link to="/">
                         <h1 className='font-bold text-yellow-500 text-3xl'>TONG GHOR</h1>
@@ -17,9 +17,9 @@ const Header = () => {
 
                 </div>
 
-                <div className='flex gap-5 justify-between items-center'>
+                <div className='flex gap-5 justify-between items-center sm:flex-col-reverse md:flex-row-reverse '>
 
-                    <img src="https://static.vecteezy.com/system/resources/previews/011/482/129/original/simple-and-hot-tea-logo-design-template-tea-cup-logo-design-free-vector.jpg" alt="" className='w-16' />
+                    {/* <img src="https://static.vecteezy.com/system/resources/previews/011/482/129/original/simple-and-hot-tea-logo-design-template-tea-cup-logo-design-free-vector.jpg" alt="" className='w-16' /> */}
 
                     <NavLink
                         to="/home"
