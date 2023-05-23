@@ -17,6 +17,7 @@ import LandingPage from './Components/LandingPage/LandingPage.jsx';
 import AuthProvider from './Components/Provider/AuthProvider.jsx';
 import PrivateRoute from './Components/Routes/PrivateRoute.jsx';
 import Blog from './Components/Blog/Blog.jsx';
+import Error from './Components/Error/Error.jsx';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>
+    
+      },
+      {
+        path: "/*",
+        element: <Error></Error>
     
       },
 
